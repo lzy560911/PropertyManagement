@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lzy.pojo">
+	<class name="Parking" table="a_parking">
+		<id name="p_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="p_name"></property>
+		<property name="h_house_number"></property>
+		<property name="p_time"></property>
+		<property name="oc_licenseplate"></property>
+	</class>
+</hibernate-mapping>

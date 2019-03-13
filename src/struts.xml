@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd" >
+<struts>       
+	<!-- 启用配置文件的自动重新加载 -->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 启用struts2的动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<package name="main" extends="json-default">
+	<!-- <interceptors>  
+        配置拦截器  
+        <interceptor name="LoginFilter" class="com.lzy.filter.LoginFilter"/>  
+    </interceptors>   -->
+		<!-- class和applicationContext中配置的id一致 -->
+		<action name="Login" class="LoginAction">
+			<result name="success" type="json">
+				<param name="root" >dataMap</param>
+				/login.jsp
+			</result>
+			<result name="register" type="json">
+				<param name="root" >dataMap</param>
+				/register.jsp
+			</result>
+			<result name="phone" type="json">
+				<param name="root" >dataMap</param>
+				/register.jsp
+			</result>
+			<result name="findCardNum" type="json">
+				<param name="root" >dataMap</param>
+				/jsp/add_ownerinfo.jsp
+			</result>
+		    <!-- 引用Struts默认拦截器 -->
+		   <!--  <interceptor-ref name="defaultStack"/> -->
+		    <!-- 引用拦截器,一般配置在result后面 -->    
+		    <!-- <interceptor-ref name="LoginFilter"/>   -->
+		</action>
+	</package>
+	
+	<!-- 和摄像头有关 -->
+	<package name="main1" extends="struts-default">
+		<action name="Camera" class="CameraAction">
+			<result name="camsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main1_2" extends="json-default">
+		<action name="Camera" class="CameraAction">
+			<result name="findsuccess">/camerainfo.jsp</result>
+			<result name="edit">/jsp/camera_edit.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和健身器有关 -->
+	<package name="main2" extends="struts-default">
+		<action name="Apparatus" class="ApparatusAction">
+			<result name="appsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main2_2" extends="json-default">
+		<action name="Apparatus" class="ApparatusAction">
+			<result name="findsuccess">/apparatusinfo.jsp</result>
+			<result name="edit">/jsp/apparatus_edit.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和其余公共设施有关有关 -->
+	<package name="main3" extends="struts-default">
+		<action name="Otherapparatus" class="OthApparatusAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main3_2" extends="json-default">
+		<action name="Otherapparatus" class="OthApparatusAction">
+			<result name="findsuccess">/otherapparatusinfo.jsp</result>
+			<result name="edit">/jsp/other_apparatus_edit.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和停车位有关的 -->
+	<package name="main4" extends="struts-default">
+		<action name="Parking" class="ParkingAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main4_2" extends="json-default">
+		<action name="Parking" class="ParkingAction">
+			<result name="findsuccess">/parkinginfo.jsp</result>
+			<result name="findfreesuccess">/freeparkinginfo.jsp</result>
+			<result name="edit">/jsp/parking_edit.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和业主车辆有关的 -->
+	<package name="main5" extends="struts-default">
+		<action name="Cars" class="CarsAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main5_2" extends="json-default">
+		<action name="Cars" class="CarsAction">
+			<result name="findsuccess">/carsinfo.jsp</result>
+			<result name="edit">/jsp/cars_edit.jsp</result>
+			<result name="findcondition">/carsinfo_condition.jsp</result>
+			<result name="findCarNum" type="json">
+				<param name="root" >dataMap</param>
+				/jsp/add_carsinfo.jsp.jsp
+			</result>
+		</action>		
+	</package>
+	
+	<!-- 和部门有关的 -->
+	<package name="main6" extends="struts-default">
+		<action name="Department" class="DepartmentAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main6_2" extends="json-default">
+		<action name="Department" class="DepartmentAction">
+			<result name="findsuccess">/departmentinfo.jsp</result>
+			<result name="edit">/jsp/department_edit.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和工作人员有关的 -->
+	<package name="main7" extends="struts-default">
+		<action name="Worker" class="WorkerAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+			<result name="edit">/success.jsp</result>
+			<!-- <result name="addsuccess">/success.jsp</result> -->
+			<!-- <result name="input">/success.jsp</result> -->
+		</action>		
+	</package>
+	<package name="main7_2" extends="json-default">
+		<action name="Worker" class="WorkerAction">
+			<result name="findsuccess">/workerinfo.jsp</result>
+			<result name="input">/success.jsp</result>
+			<result name="edit">/jsp/worker_edit.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和房屋有关的 -->
+	<package name="main8" extends="struts-default">
+		<action name="Home" class="HomeAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main8_2" extends="json-default">
+		<action name="Home" class="HomeAction">
+			<result name="findsuccess">/homeinfo.jsp</result>
+			<!-- <result name="input">/homeinfo.jsp</result> -->
+			<result name="freefindsuccess">/freehomeinfo.jsp</result>
+			<result name="edit">/jsp/home_edit.jsp</result>
+			<result name="findnumsuccess">/jsp/add_ownerinfo.jsp</result>
+			<result name="findHouNum" type="json">
+				<param name="root" >dataMap</param>
+				/jsp/add_freehomeinfo.jsp
+			</result>
+		</action>		
+	</package>
+	
+	<!-- 和管理员有关的 -->
+	<package name="main9" extends="struts-default">
+		<action name="Administrators" class="AdministratorsAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main9_2" extends="json-default">
+		<action name="Administrators" class="AdministratorsAction">
+			<result name="findsuccess">/administratorsinfo.jsp</result>
+			<result name="edit">/jsp/administrators_edit.jsp</result>
+			<result name="findpassword">/findpasswordinfo.jsp</result>
+			<result name="addsuccess">/login.jsp</result>
+			<result name="returnLogin">/welcome.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和业主有关的 -->
+	<package name="main10" extends="struts-default">
+		<action name="Owner" class="OwnerAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main10_2" extends="json-default">
+		<action name="Owner" class="OwnerAction">
+			<result name="findsuccess">/ownerinfo.jsp</result>
+			<result name="edit">/jsp/owner_edit.jsp</result>
+			<result name="repair">/jsp/repair_message.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和水电费有关的 -->
+	<package name="main11" extends="struts-default">
+		<action name="Money" class="MoneyAction">
+			<result name="oappsuccess">/jsp/success.jsp</result>
+			<result name="jfsuccess">/moneysuccess.jsp</result>
+		</action>		
+	</package>
+	<package name="main11_2" extends="json-default">
+		<action name="Money" class="MoneyAction">
+			<result name="findsuccess">/moneyinfo.jsp</result>
+			<result name="findreadysuccess">/moneyreadyinfo.jsp</result>
+			<result name="findmoney">/jsp/money_edit.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和水电费凭证有关的 -->
+	<package name="main12" extends="struts-default">
+		<action name="Pay" class="PayAction">
+			<result name="jfsuccess">/moneysuccess.jsp</result>
+		</action>		
+	</package>
+	<package name="main12_2" extends="json-default">
+		<action name="Pay" class="PayAction">
+			<result name="printvoucher">/printvoucher.jsp</result>
+			<result name="jfsuccess">/success.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 和保修信息有关的 -->
+	<package name="main13" extends="struts-default">
+		<action name="Repair" class="RepairAction">
+			<result name="success">/success.jsp</result>
+			<result name="findbyid">/jsp/printRepMes.jsp</result>
+			<result name="print">/printvoucherRep.jsp.jsp</result>
+		</action>		
+	</package>
+	<package name="main13_2" extends="json-default">
+		<action name="Repair" class="RepairAction">
+			<result name="success">/success.jsp</result>
+			<result name="findsuccess">/repairinfo.jsp</result>
+			<result name="findfalse">/unRepairInfo.jsp</result>
+			<result name="findfinish">/repairfinish.jsp</result><!-- 完成维修，从凭证表查询 -->
+			<result name="print">/printvoucherRep.jsp</result>
+			<result name="findbyid">/jsp/printRepMes.jsp</result>
+		</action>		
+	</package>
+	
+	<!-- 发送网络套接字 -->
+	<package name="main14" extends="struts-default">
+		<action name="Socket" class="SocketAction">
+			<result name="success">/success.jsp</result>
+		</action>		
+	</package>
+	<package name="main14_2" extends="json-default">
+		<action name="Socket" class="SocketAction">
+			<result name="success">/success.jsp</result>
+			<result name="findsuccess">/repairinfo.jsp</result>
+		</action>		
+	</package>
+	
+</struts>

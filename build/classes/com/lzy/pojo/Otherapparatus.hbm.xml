@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.lzy.pojo">
+	<class name="Otherapparatus" table="a_other_apparatus">
+		<id name="ap_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="ap_name"></property>
+		<property name="ap_state"></property>
+		<property name="ap_time"></property>
+		<property name="ap_manufacturer"></property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>SSH_finally_ks</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+	<filter>
+	  <filter-name>login</filter-name>
+	  <filter-class>com.lzy.filter.LoginFilter_two</filter-class>
+	</filter>
+  	<filter-mapping>
+	  <filter-name>login</filter-name>
+	  <url-pattern>/main.jsp</url-pattern>
+  	</filter-mapping>
+  
+
+	<!-- <filter>  
+		<filter-name>filter</filter-name>  
+		<filter-class>com.lzy.filter.LoginFilter_two</filter-class>  
+	</filter>
+	 拦截以.jsp结尾的链接  
+    <filter-mapping>  
+        <filter-name>filter</filter-name>  
+        <url-pattern>*.jsp</url-pattern>  
+    </filter-mapping>  
+    拦截以.do结尾的链接  
+    <filter-mapping>  
+        <filter-name>filter</filter-name>  
+        <url-pattern>*.do</url-pattern>  
+    </filter-mapping>  
+  
+    设置session失效时间为30分钟  
+    <session-config>  
+        <session-timeout>30</session-timeout>  
+    </session-config>   -->
+	
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
+  </context-param>
+  
+  
+  <servlet>
+    <servlet-name>CarsNum</servlet-name>
+    <servlet-class>com.lzy.dataview.CarsNum</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarsNum</servlet-name>
+    <url-pattern>/carsNum.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ParkingsNum</servlet-name>
+    <servlet-class>com.lzy.dataview.ParkingsNum</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ParkingsNum</servlet-name>
+    <url-pattern>/parkingsNum.do</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
